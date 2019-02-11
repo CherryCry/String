@@ -34,3 +34,26 @@ Tree::Tree(const char a[], const int m)
     r = -1;  //规定根的位置是-1；
     n = m;  
 }
+----------------------------------------------------------------------
+/*数据结构---孩子表示法*/
+/*充分利用线性表和链表*/
+#include<iostream>
+struct Child_Node{    //孩子结点
+    int child;  //孩子结点的数据域；
+    struct Child_Node*next;   //双亲可以对应多个节点（孩子）
+}; 
+typedef struct First_Node{  //表头结点
+    int data;     //表头结点的数据域
+    struct Child_Node*first;   //表头结点的指针域指向孩子结点
+};
+class Tree{
+public:
+    Tree();
+    Tree(const int a[], const int m);
+    ~Tree();
+private:
+    static const int Maxsize = 100;
+    First_Node nodes[Maxsize]; //结构体数组
+    int n;   //结点总数
+    int r;   //根节点的位置
+};
