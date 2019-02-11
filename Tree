@@ -4,6 +4,9 @@
 typedef struct Node{  //表示结点
     int data;    //结点的数据域
     int parent;  //双亲的位置
+    //int first_chlid;
+    //int second_child;
+    //int .......
 };
 class Tree{
 public:
