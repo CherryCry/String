@@ -1,0 +1,33 @@
+/*树的存储结构--双亲表示法*/
+/*用线性结构数组构成*/
+#include<iostream>
+typedef struct Node{  //表示结点
+    int data;    //结点的数据域
+    int parent;  //双亲的位置
+};
+class Tree{
+public:
+    Tree();
+    Tree(const char a[], const int m);
+    ~Tree();
+private:
+    static const int Maxsize = 100;
+    Node nodes[Maxsize];
+    int r=0;  //  根的位置
+    int n=0;   // 总结点数
+};
+Tree::~Tree()
+{
+
+}
+Tree::Tree(const char a[], const int m)
+{
+    for (int i = 0; i < m; ++i)
+    {
+        nodes[i].data = a[i];
+        //根据具体树进行赋值nodes[i].parent=
+        
+    }
+    r = -1;  //规定根的位置是-1；
+    n = m;  
+}
