@@ -9,6 +9,7 @@ struct Node{
 template<typename DataType>
 class Tree{
 public:
+    
     Tree(Node<DataType>*Root);
     ~Tree(Release(Root));
 public:
