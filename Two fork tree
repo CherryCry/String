@@ -1,0 +1,91 @@
+/*二叉树的建立*/
+#include<iostream>
+template<typename DataType>
+struct Node{     
+    int data;
+    struct Node*left_child;
+    struct Node*right_child;
+};
+template<typename DataType>
+class Tree{
+public:
+    Tree(Node<DataType>*Root);
+    ~Tree(Release(Root));
+public:
+    void PreOrder(){ PreOrder(Root); };  //前序遍历算法
+    void InOrder(){ InOrder(Root); };   //中序遍历算法
+    void PostOrder(){ PostOrder(Root); };  //后序遍历算法
+private:
+    void Release(Node<DataType>*Root);
+    void PreOrder(Node<DataType>*Root);
+    void InOrder(Node<DataType>*Root);
+    void PostOrder(Node<DataType>*Root);
+    Node<DataType>*Root;
+ };
+template<typename DataType>
+Tree<DataType>::Tree(Node<DataType>*Root)
+{
+    Root = new Node < DataType > ;
+    Node<DataType>*node = Root;
+    DataType ch;
+    std::cout << ch;
+    if (ch == '#')
+        node = nullptr;
+    else
+    {
+        node = new Node < DataType > ;
+        node->data = ch;
+        node->left_child = Tree(node->left_child);
+        node->right_child = Tree(node->right_child);
+    }
+}
+template<typename DataType>
+void Tree<DataType>::Release(Node<DataType>*Root)
+{
+    Node<DataType>*node = Root;
+    if (node != nullptr)
+    {
+        Release(node->left_child);
+        Release(node->right_child);
+        delete node;
+    }
+}
+template<typename DataType>
+void Tree<DataType>::PreOrder(Node<DataType>*Root)
+{
+    Node<DataType>*node = Root;
+    if (node == nullptr)
+        return;
+    else
+    {
+        std::cout << node->data << " ";
+        PreOrder(node->left_child);
+        PreOrder(node->right_child);
+    }
+}
+template<typename DataType>
+void Tree<DataType>::InOrder(Node<DataType>*Root)
+{
+    Node<DataType>*node = Root;
+    if (node == nullptr)
+        return;
+    else
+    {
+        InOrder(node->left_child);
+        std::cout << node->data << " ";
+        InOrder(node->right_child);
+    }
+}
+template<typename DataType>
+void Tree<DataType>::PostOrder(Node<DataType>*Root)
+{
+    Node<DataType>*node = Root;
+    if (node == nullptr)
+        return;
+    else
+    {
+        PostOrder(node->left_child);
+        PostOrder(node->right_child);
+        std::cout << node->data << " ";
+    }
+} 
