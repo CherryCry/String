@@ -16,8 +16,10 @@ public:
     void InOrder(){ InOrder(Root); };   //中序遍历算法
     void PostOrder(){ PostOrder(Root); };  //后序遍历算法
     
-    //前序，中序，后序算法都采用了递归思想（递归（Recursion），指在函数的定义中使用函数自身的方法，即程序的自身调用。 递归一词还较常用于描述以自相似方法重复事物的过程。    ）
-private:
+    //前序，中序，后序算法都采用了递归思想（递归（Recursion），指在函数的定义中使用函数自身的方法，即程序的自身调用。 递归一词还较常用于描述以自相似方法重复事物的过程。
+    ）
+    //创建链表（栈链表，队链表，串链表） 都可以运用递归的思想；
+    private:
     void Release(Node<DataType>*Root);
     void PreOrder(Node<DataType>*Root);
     void InOrder(Node<DataType>*Root);
