@@ -8,21 +8,26 @@ struct Node{
 };
 template<typename DataType>
 class Tree{
-public:
-    
+public
     Tree(Node<DataType>*Root);
-    ~Tree(Release(Root));
+    ~Tree(){Release(Root);};
 public:
     void PreOrder(){ PreOrder(Root); };  //前序遍历算法
     void InOrder(){ InOrder(Root); };   //中序遍历算法
     void PostOrder(){ PostOrder(Root); };  //后序遍历算法
+    
+    //前序，中序，后序算法都采用了递归思想（递归（Recursion），指在函数的定义中使用函数自身的方法，即程序的自身调用。 递归一词还较常用于描述以自相似方法重复事物的过程。    ）
 private:
     void Release(Node<DataType>*Root);
     void PreOrder(Node<DataType>*Root);
     void InOrder(Node<DataType>*Root);
     void PostOrder(Node<DataType>*Root);
-    Node<DataType>*Root;
+    Node<DataType>*Root;  //根节点
+  
+    
  };
+ /*创建二叉树*/
+ /*思想：与前序遍历算法相似，打印处替换成为赋值*/
 template<typename DataType>
 Tree<DataType>::Tree(Node<DataType>*Root)
 {
@@ -34,9 +39,10 @@ Tree<DataType>::Tree(Node<DataType>*Root)
         node = nullptr;
     else
     {
+      
         node = new Node < DataType > ;
         node->data = ch;
-        node->left_child = Tree(node->left_child);
+        node->left_child = Tree(node->left_child);  
         node->right_child = Tree(node->right_child);
     }
 }
