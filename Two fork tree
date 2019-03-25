@@ -40,7 +40,7 @@ Tree<DataType>::Tree(Node<DataType>*Root)
     Root = new Node < DataType > ;
     Node<DataType>*node = Root;
     DataType ch;
-    std::cout << ch;
+    std::cin>>ch;
     if (ch == '#')
         node = nullptr;
     else
